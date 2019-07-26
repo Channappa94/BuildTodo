@@ -42,6 +42,18 @@ class ViewController: UITableViewController {
         cell.textLabel?.text = todo
         return cell
     }
+    //****This line will help to delete the file you want to delete
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            todoListItems.remove(at: indexPath.row)
+        }
+        tableView.reloadData()
+        print("total item: \(todoListItems.count)")
+        for name in todoListItems{
+            print(name)
+        }
+        
+    }
 
 }
 
