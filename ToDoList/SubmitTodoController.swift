@@ -18,6 +18,7 @@ class SubmitTodoController: UIViewController {
     @IBAction func btnSubmit(_ sender: Any) {
         let todo: String = txttodo.text!
         todoListItems.append(todo)
+        UserDefaults.standard.set(todoListItems, forKey: "List")
     }
     
 }

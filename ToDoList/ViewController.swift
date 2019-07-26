@@ -14,7 +14,11 @@ var todoListItems = [String]()
 class ViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
-      
+        if let array = UserDefaults.standard.value(forKey: "List"){
+            todoListItems = array as? [String] ?? []
+        }else{
+            UserDefaults.standard.set(todoListItems, forKey: "list")
+        }
         //the code is not running twice
         tableView.reloadData()
     }
