@@ -7,13 +7,17 @@
 //
 
 import UIKit
+//global varibale and it will always the same and can be used anywhere
+var todoListItems = [String]()
 
-class ViewController: UIViewController {
+
+class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
 
 
 }
