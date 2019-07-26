@@ -17,7 +17,7 @@ class ViewController: UITableViewController {
         if let array = UserDefaults.standard.value(forKey: "List"){
             todoListItems = array as? [String] ?? []
         }else{
-            UserDefaults.standard.set(todoListItems, forKey: "list")
+            UserDefaults.standard.set(todoListItems, forKey: "List")
         }
         //the code is not running twice
         tableView.reloadData()
@@ -46,14 +46,22 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             todoListItems.remove(at: indexPath.row)
+            //******when the user delete the row by swiping it to left then user default will automatically adjust by clling below lines
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(todoListItems, forKey: "List")
+            
         }
         tableView.reloadData()
         print("total item: \(todoListItems.count)")
         for name in todoListItems{
             print(name)
         }
+       
         
     }
+    
+
 
 }
 
