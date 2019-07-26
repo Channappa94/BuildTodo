@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class SubmitTodoController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SubmitTodoController: UIViewController {
 
     @IBOutlet weak var txttodo: UITextField!
     override func viewDidLoad() {
@@ -16,17 +16,8 @@ class SubmitTodoController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     @IBAction func btnSubmit(_ sender: Any) {
-        var todo: String = txttodo.text!
+        let todo: String = txttodo.text!
         todoListItems.append(todo)
     }
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todoListItems.count
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
 }
