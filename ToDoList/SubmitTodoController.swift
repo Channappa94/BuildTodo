@@ -19,6 +19,7 @@ class SubmitTodoController: UIViewController {
         let todo: String = txttodo.text!
         todoListItems.append(todo)
         UserDefaults.standard.set(todoListItems, forKey: "List")
+        
     }
     
 }
